@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bootstrap.</title>
+  <title>Find the number</title>
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
@@ -12,7 +12,7 @@
 	<div class="container align-items-center d-flex flex-column">
 		<form class="form form-inline justify-content-center py-5" action="https://echo.htmlacademy.ru">
 			<div class="form-group">
-				<input class="form-control" type="number" required aria-label="Son kiriting">
+				<input class="form-control" type="number" required aria-label="Son kiriting" name="number">
 			</div>
 
 			<button type="submit" class="btn btn-primary mx-4">Tekshir</button>
@@ -31,8 +31,13 @@
   	var alertBox = document.querySelector('.alert');
   	var efforts = 1;
 
+
   	elForm.addEventListener('submit', function(evt) {
   		evt.preventDefault();
+
+	  	if(elInput.value == '') {
+	  		return;
+	  	}
 
   		if(efforts <= 6) {
 	  		var inputNumber = parseInt(elInput.value.trim(), 10);
@@ -44,11 +49,11 @@
   			if(inputNumber == randomNum) {
 	  			alertBox.classList.remove('alert-info');
 	  			alertBox.classList.add('alert-success');
-	  			alertBox.append('. Tabriklaymiz!')
+	  			alertBox.append('. Tabriklaymiz!');
   			}	else if(inputNumber < randomNum) {
-	  			alertBox.append('. Siz o\'ylagan son juda kichik.')
+	  			alertBox.append('. Siz o\'ylagan son juda kichik.');
 	  		} else {
-	  			alertBox.append('. Siz o\'ylagan son juda katta.')
+	  			alertBox.append('. Siz o\'ylagan son juda katta.');
 	  		}
 
 	  		efforts++;
